@@ -1,0 +1,110 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #7a0afaf8, #f504d5e8);
+  color: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Player box */
+.player-container {
+  background: rgba(253, 173, 0, 0.452);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(8, 194, 218, 0.842);
+  width: 90%;
+  max-width: 400px;
+}
+
+/* Album cover + glow + spin */
+.cover img {
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+  object-fit: cover;
+  margin: 20px 0;
+  animation: spin 20s linear infinite paused, plusGlow 2s ease-in-out infinite;
+  box-shadow: 0 0 20px #00ffff, 0 0 40px #ff00ff;
+  transition: 5s;
+}
+
+/* When playing → rotate + glow */
+.cover.playing img {
+  animation-play-state: running;
+}
+
+/* 🎧 Spin effect */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ✨ Plus Glow Effect (reactive pulse) */
+@keyframes plusGlow {
+  0% {
+    box-shadow: 
+      0 0 15px hsl(152, 100%, 46%), 
+      0 0 30px #ff00cc, 
+      inset 0 0 10px #ff00cc;
+    transform: scale(1);
+  }
+  25% {
+    box-shadow: 
+      0 0 25px #00ffff, 
+      0 0 50px #00ffff, 
+      inset 0 0 15px #00ffff;
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 
+      0 0 30px #ffcc00, 
+      0 0 60px #ffcc00, 
+      inset 0 0 20px #ffcc00;
+    transform: scale(1);
+  }
+  75% {
+    box-shadow: 
+      0 0 25px #00ff99, 
+      0 0 50px #00ff99, 
+      inset 0 0 15px #00ff99;
+    transform: scale(1);
+  }
+  100% {
+    box-shadow: 
+      0 0 15px #ff00cc, 
+      0 0 30px #ff00cc, 
+      inset 0 0 10px #ff00cc;
+    transform: scale(1);
+  }
+}
+
+/* Buttons */
+.controls button {
+  background: #02be80;
+  border: none;
+  color: #f5f4f4;
+  padding: 12px 20px;
+  margin: 10px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.controls button:hover {
+  background: #037fe471;
+  transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+  color: #000000;
+  margin-top: 30px;
+  font-size: 20px;
+  opacity: 1;
+}
